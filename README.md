@@ -2,11 +2,11 @@
 
 
 ## Create employee Table
-```sql
+```
 CREATE TABLE EMP (EMPNO NUMBER(4) PRIMARY KEY,ENAME VARCHAR2(10),JOB VARCHAR2(9),MGR NUMBER(4),HIREDATE DATE,SAL NUMBER(7,2),COMM NUMBER(7,2),DEPTNO NUMBER(2));
 ```
 ## Insert the values
-```sql
+```
 INSERT INTO EMP (EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO)
 VALUES (7369, 'SMITH', 'CLERK', 7902, '17-DEC-80', 800, NULL, 20);
 
@@ -51,11 +51,11 @@ VALUES (7934, 'MILLER', 'CLERK', 7782, TO_DATE('23-JAN-82', 'DD-MON-RR'), 1300, 
 ```
 
 ## Create department table
-```sql
+```
 CREATE TABLE DEPT (DEPTNO NUMBER(2) PRIMARY KEY,DNAME VARCHAR2(14),LOC VARCHAR2(13));
 ```
 ## Insert the values in the department table
-```sql
+```
 INSERT INTO DEPT (DEPTNO, DNAME, LOC) VALUES (10, 'ACCOUNTING', 'NEW YORK');
 
 INSERT INTO DEPT (DEPTNO, DNAME, LOC) VALUES (20, 'RESEARCH', 'DALLAS');
@@ -69,24 +69,27 @@ INSERT INTO DEPT (DEPTNO, DNAME, LOC) VALUES (40, 'OPERATIONS', 'BOSTON');
 
 
 ### QUERY:
+```
 CREATE VIEW details AS SELECT ENAME FROM EMP WHERE SAL > (select SAL from EMP where EMPNO=7566);
-
+```
 ### OUTPUT:
 ![output](./a.png)
 
 ### Q2) List the ename,job,sal of the employee who get minimum salary in the company.
 
 ### QUERY:
+```
 CREATE VIEW minimum AS select ENAME,JOB,SAL from EMP where SAL =(select MIN(SAL) from EMP);
-
+```
 ### OUTPUT:
 ![output](./b.png)
 
 ### Q3) List ename, job of the employees who work in deptno 10 and his/her job is any one of the job in the department ‘SALES’.
 
 ### QUERY:
+```
  select ENAME,JOB from EMP where DEPTNO=10 AND JOB='SALESMAN’;
-
+```
 ### OUTPUT:
 ![output](./c.png)
 
@@ -94,16 +97,18 @@ CREATE VIEW minimum AS select ENAME,JOB,SAL from EMP where SAL =(select MIN(SAL)
 ### Q4) Create a view empv5 (for the table emp) that contains empno, ename, job of the employees who work in dept 10.
 
 ### QUERY:
+```
  create view empv5 as select EMPNO,ENAME,JOB from EMP where DEPTNO=10;
-
+```
 ### OUTPUT:
 ![output](./d.png)
 
 ### Q5) Create a view with column aliases empv30 that contains empno, ename, sal of the employees who work in dept 30. Also display the contents of the view.
 
 ### QUERY:
+```
 create view empv30 AS select EMPNO,ENAME, SAL from EMP where DEPTNO=30;
-
+```
 
 ### OUTPUT:
 ![output](./e.png)
@@ -111,15 +116,16 @@ create view empv30 AS select EMPNO,ENAME, SAL from EMP where DEPTNO=30;
 ### Q6) Update the view empv5 by increasing 10% salary of the employees who work as ‘CLERK’. Also confirm the modifications in emp table
 
 ### QUERY:
+```
  update EMP set SAL=SAL*1.1 WHERE JOB='clerk’;
  create view empv7 as select EMPNO,ENAME,SAL,JOB from EMP;
-
+```
 ### OUTPUT:
 ![output](./g.png)
 ![output](./h.png)
 
 ## Create a Customer1 Table
-```sql
+```
 CREATE TABLE Customer1 (customer_id INT,cust_name VARCHAR(20),city VARCHAR(20),grade INT,salesman_id INT);
 ```
 ## Inserting Values to the Table
@@ -134,7 +140,7 @@ INSERT INTO Customer1 (customer_id, cust_name, city, grade, salesman_id) VALUES(
 INSERT INTO Customer1 (customer_id, cust_name, city, grade, salesman_id) VALUES(3001, 'Brad Guzan', 'London', NULL, 5005);
 ```
 ## Create a Salesperson1 table
-```sql
+```
 CREATE TABLE Salesman1 (salesman_id INT,name VARCHAR(20),city VARCHAR(20),commission DECIMAL(4,2));
 ```
 ## Inserting Values to the Table
@@ -149,8 +155,9 @@ INSERT INTO Salesman1 (salesman_id, name, city, commission) VALUES(5003, 'Lauson
 ### Q7) Write a SQL query to find the salesperson and customer who reside in the same city. Return Salesman, cust_name and city.
 
 ### QUERY:
+```
 select s.name,c.cust_name,s.city from salesman as s,customer1 as c¢ where s.city=c.city;
-
+```
 ### OUTPUT:
 ![output](./i.png)
 
@@ -158,18 +165,20 @@ select s.name,c.cust_name,s.city from salesman as s,customer1 as c¢ where s.cit
 
 
 ### QUERY:
+```
 select s.name,c.cust_name,s.city,s.commission from salesman as s inner join customer1 as c on s.city
 where s.commission>0.13;
-
+```
 ### OUTPUT:
 ![output](./j.png)
 
 ### Q9) Perform Natural join on both tables
 
 ### QUERY:
+```
 select s.name,c.cust_name,s.city,s.commission from salesman? as s natural join customer as ¢c where
 s.commission>0.13;
-
+```
 ### OUTPUT:
 ![output](./k.png)
 
@@ -177,11 +186,12 @@ s.commission>0.13;
 
 
 ### QUERY:
+```
 select s.name,c.cust_name,s.city,s.commission from salesman as s left join customer1 as ¢ on
 s.salesman_id=c.salesman_id where s.commission>0.13; select s.name,c.cust_name,s.city,s.commission
 from salesman as s right join customer? as ¢ on s.salesman_id=c.salesman_id where
 s.commission>0.13;
-
+```
 ### OUTPUT:
 ![output](./l.png)
 
