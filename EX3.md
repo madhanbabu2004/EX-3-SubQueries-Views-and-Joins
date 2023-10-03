@@ -69,45 +69,54 @@ INSERT INTO DEPT (DEPTNO, DNAME, LOC) VALUES (40, 'OPERATIONS', 'BOSTON');
 
 
 ### QUERY:
-
+CREATE VIEW details AS SELECT ENAME FROM EMP WHERE SAL > (select SAL from EMP where EMPNO=7566);
 
 ### OUTPUT:
+![output](./a.png)
 
 ### Q2) List the ename,job,sal of the employee who get minimum salary in the company.
 
 ### QUERY:
-
+CREATE VIEW minimum AS select ENAME,JOB,SAL from EMP where SAL =(select MIN(SAL) from EMP);
 
 ### OUTPUT:
+![output](./b.png)
 
 ### Q3) List ename, job of the employees who work in deptno 10 and his/her job is any one of the job in the department ‘SALES’.
 
 ### QUERY:
-
+ select ENAME,JOB from EMP where DEPTNO=10 AND JOB='SALESMAN’;
 
 ### OUTPUT:
+![output](./c.png)
 
 
 ### Q4) Create a view empv5 (for the table emp) that contains empno, ename, job of the employees who work in dept 10.
 
 ### QUERY:
-
+ create view empv5 as select EMPNO,ENAME,JOB from EMP where DEPTNO=10;
 
 ### OUTPUT:
+![output](./d.png)
 
 ### Q5) Create a view with column aliases empv30 that contains empno, ename, sal of the employees who work in dept 30. Also display the contents of the view.
 
 ### QUERY:
+create view empv30 AS select EMPNO,ENAME, SAL from EMP where DEPTNO=30;
 
 
 ### OUTPUT:
+![output](./e.png)
 
 ### Q6) Update the view empv5 by increasing 10% salary of the employees who work as ‘CLERK’. Also confirm the modifications in emp table
 
 ### QUERY:
-
+ update EMP set SAL=SAL*1.1 WHERE JOB='clerk’;
+ create view empv7 as select EMPNO,ENAME,SAL,JOB from EMP;
 
 ### OUTPUT:
+![output](./g.png)
+![output](./h.png)
 
 ## Create a Customer1 Table
 ```sql
@@ -140,28 +149,41 @@ INSERT INTO Salesman1 (salesman_id, name, city, commission) VALUES(5003, 'Lauson
 ### Q7) Write a SQL query to find the salesperson and customer who reside in the same city. Return Salesman, cust_name and city.
 
 ### QUERY:
-
+select s.name,c.cust_name,s.city from salesman as s,customer1 as c¢ where s.city=c.city;
 
 ### OUTPUT:
+![output](./i.png)
 
 ### Q8) Write a SQL query to find salespeople who received commissions of more than 13 percent from the company. Return Customer Name, customer city, Salesman, commission.
 
 
 ### QUERY:
-
+select s.name,c.cust_name,s.city,s.commission from salesman as s inner join customer1 as c on s.city
+where s.commission>0.13;
 
 ### OUTPUT:
+![output](./j.png)
 
 ### Q9) Perform Natural join on both tables
 
 ### QUERY:
-
+select s.name,c.cust_name,s.city,s.commission from salesman? as s natural join customer as ¢c where
+s.commission>0.13;
 
 ### OUTPUT:
+![output](./k.png)
 
 ### Q10) Perform Left and right join on both tables
 
-### QUERY:
 
+### QUERY:
+select s.name,c.cust_name,s.city,s.commission from salesman as s left join customer1 as ¢ on
+s.salesman_id=c.salesman_id where s.commission>0.13; select s.name,c.cust_name,s.city,s.commission
+from salesman as s right join customer? as ¢ on s.salesman_id=c.salesman_id where
+s.commission>0.13;
 
 ### OUTPUT:
+![output](./l.png)
+
+### RESULT :
+Hence successfully created a manager database and executed views and joins using SQL.
