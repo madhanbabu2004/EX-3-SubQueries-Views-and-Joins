@@ -2,11 +2,11 @@
 
 
 ## Create employee Table
-```sql
+```
 CREATE TABLE EMPLLOPY (EMPID NUMBER(10) PRIMARY KEY,EMPLOYEENAME VARCHAR2(20),JOB VARCHAR2(20),MGR NUMBER(20),HIREDATE DATE,SALARY NUMBER(7,2),COMMISSION NUMBER(7,2),DEPTNO NUMBER(2));
 ```
 ## Insert the values
-```sql
+```
 INSERT INTO EMPLLOPY (EMPID, EMPLOYEENAME, JOB, MGR, HIREDATE, SALARY, COMMISSION, DEPTNO)
 VALUES (1, 'LORS', 'SUPRIVISOR', 111, '17-DEC-80', 500, 600, 1);
 
@@ -39,11 +39,11 @@ VALUES (14, 'LITTON', 'CLERK', 123, '23-JAN-82',  3100, 300, 9);
 ```
 
 ## Create department table
-```sql
+```
 CREATE TABLE DEPARTMENT (DEPARTMENTNUMB NUMBER(2) PRIMARY KEY,DEPARTNAME VARCHAR2(14),LOCICLA VARCHAR2(13));
 ```
 ## Insert the values in the department table
-```sql
+```
 INSERT INTO DEPARTMENT (DEPARTMENTNUMB, DEPARTNAME, LOCICLA) VALUES (1, 'BIOLOGY', 'LAVA');
 INSERT INTO DEPT (DEPTNO, DNAME, LOC) VALUES (2, 'BOTONY', 'JAVA');
 INSERT INTO DEPT (DEPTNO, DNAME, LOC) VALUES (3, 'SALES', 'BUTUNO');
@@ -105,11 +105,11 @@ create view empv34 AS select EMPID,EMPLOYEENAME, SALARY from EMPLLOPY where DEPT
 ![output](./g.png)
 
 ## Create a CUSTMWE Table
-```sql
+```
 CREATE TABLE CUSTMWE (ID INT,NAMES VARCHAR(20),city VARCHAR(20),grade INT,salesman_id INT);
 ```
 ## Inserting Values to the Table
-```sql
+```
 INSERT INTO CUSTMWE (ID, NAMES, city, grade, salesman_id) VALUES(3002, ' KIRMADA', ' URANUS', 400, 1);
 INSERT INTO CUSTMWE (ID, NAMES, city, grade, salesman_id) VALUES(3007, ' JENA', 'PLUTO ', 300, 2);
 INSERT INTO CUSTMWE (ID, NAMES, city, grade, salesman_id) VALUES(3005, 'VILTE ', 'EARTH', 200, 3);
@@ -124,7 +124,7 @@ INSERT INTO CUSTMWE (ID, NAMES, city, grade, salesman_id) VALUES(3001, ' DON', '
 CREATE TABLE CLINTI (salesman_id INT,name VARCHAR(20),city VARCHAR(20),commission DECIMAL(4,2));
 ```
 ## Inserting Values to the Table
-```sql
+```
 INSERT INTO CLINTI (salesman_id, name, city, commission) VALUES(5001, 'LABU', 'URANUS', 0.9);
 INSERT INTO CLINTI (salesman_id, name, city, commission) VALUES(5002, 'USTER', 'PLUTO', 0.7);
 INSERT INTO CLINTI (salesman_id, name, city, commission) VALUES(5005, 'IDGOT', 'EARTH', 0.7);
