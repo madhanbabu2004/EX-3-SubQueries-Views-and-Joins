@@ -1,6 +1,7 @@
 # EX 3 SubQueries, Views and Joins 
-
-
+## DATE:
+## AIM:
+To create a manager database and execute SubQueries, Views and Joins .
 ## Create employee Table
 ```
 CREATE TABLE EMPLLOPY (EMPID NUMBER(10) PRIMARY KEY,EMPLOYEENAME VARCHAR2(20),JOB VARCHAR2(20),MGR NUMBER(20),HIREDATE DATE,SALARY NUMBER(7,2),COMMISSION NUMBER(7,2),DEPTNO NUMBER(2));
